@@ -29,7 +29,7 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
-    background-color: var(--background-light);
+    background: #000 url('https://www.transparenttextures.com/patterns/dark-mosaic.png') repeat;
     overflow-x: hidden;
 }
 
@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
 }
 
-/* Hero Section */
+/* Hero Section with Black Textured Background */
 .hero {
     width: 100%;
     min-height: 100vh;
@@ -57,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);  /* Black gradient */
+    background: #000 url('https://www.transparenttextures.com/patterns/dark-mosaic.png') repeat;
     position: relative;
     overflow: hidden;
 }
@@ -69,8 +69,15 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.1;
+    background: rgba(0,0,0,0.6); /* Dark overlay for contrast */
+    z-index: 0;
+}
+
+.hero h1,
+.hero p,
+.hero .cta-button {
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
@@ -82,8 +89,6 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     letter-spacing: 2px;
     animation: slideUp 0.8s ease-out;
-    position: relative;
-    z-index: 1;
 }
 
 .hero p {
@@ -96,8 +101,6 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 600px;
     line-height: 1.4;
     animation: slideUp 0.8s ease-out 0.2s backwards;
-    position: relative;
-    z-index: 1;
 }
 
 .hero .cta-button {
@@ -114,8 +117,6 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     animation: slideUp 0.8s ease-out 0.4s backwards;
-    position: relative;
-    z-index: 1;
 }
 
 .hero .cta-button:hover {
@@ -139,8 +140,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Restore previous section, sidebar, nav, and button styles for color contrast */
 section {
-    background: var(--background-light);
+    background: transparent;
     color: var(--text-primary);
+    box-shadow: none;
 }
 
 section h2, section h3, section h4, section h5, section h6 {
@@ -191,13 +193,15 @@ section.visible {
 
 /* Project Cards */
 .project-card {
-    background: var(--card-bg);
+    background: rgba(20, 20, 20, 0.85);
     border-radius: 10px;
     padding: 1.5rem;
     margin: 1rem;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
     cursor: pointer;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .project-card:hover {
@@ -759,9 +763,11 @@ h2 {
 }
 
 .contact-form {
-    background: var(--background-light);
+    background: rgba(20, 20, 20, 0.85);
     padding: 30px;
     border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .form-group {
@@ -815,9 +821,11 @@ h2 {
 
 /* Technical Skills */
 .technical-skills, .soft-skills {
-    background: var(--background-light);
+    background: rgba(20, 20, 20, 0.85);
     padding: 20px;
     border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .technical-skills h3, .soft-skills h3 {
@@ -880,12 +888,13 @@ h2 {
     align-items: center;
     gap: 15px;
     padding: 15px;
-    background: var(--background-light);
+    background: rgba(20, 20, 20, 0.85);
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
     border: 1px solid var(--text-secondary);
     font-weight: 500;
+    color: #fff;
 }
 
 .soft-skill-item:hover {
@@ -948,9 +957,11 @@ h2 {
 .publication-item {
     padding: 20px;
     border-left: 4px solid var(--primary-gradient-start);
-    background-color: var(--background-light);
+    background-color: rgba(20, 20, 20, 0.85);
     border-radius: 0 15px 15px 0;
     margin-bottom: 20px;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .publication-item h3 {
@@ -1127,4 +1138,26 @@ h2 {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: bold;
+}
+
+/* Highlighted Section Pop-Out Effect */
+.highlight-section {
+    animation: popSection 1.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 2;
+    position: relative;
+}
+
+@keyframes popSection {
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+    30% {
+        transform: scale(1.008);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
 } 
