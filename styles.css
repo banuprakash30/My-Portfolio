@@ -1,3 +1,213 @@
+/* Modern Color Palette */
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #3b82f6;
+    --accent-color: #60a5fa;
+    --text-primary: #000000;
+    --text-secondary: #1a1a1a;
+    --background-light: #ffffff;
+    --background-dark: #111827;
+    --card-bg: #f8f9fa;
+    --transition-speed: 0.3s;
+}
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    animation: fadeIn 1s ease-out;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    animation: slideUp 0.8s ease-out;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    animation: slideUp 0.8s ease-out 0.2s backwards;
+}
+
+.cta-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    animation: slideUp 0.8s ease-out 0.4s backwards;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Animations */
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    background: var(--background-light);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Project Cards */
+.project-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Skill Bars Animation */
+.progress {
+    width: 0;
+    transition: width 1s ease-out;
+    background: var(--primary-color);
+}
+
+.skill-bar.visible .progress {
+    width: var(--progress-width);
+}
+
+/* Contact Form */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--text-secondary);
+    border-radius: 5px;
+    transition: border-color var(--transition-speed);
+    background-color: var(--background-light);
+    color: var(--text-primary);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-primary: #ffffff;
+        --text-secondary: #f0f0f0;
+        --background-light: #1a1a1a;
+        --card-bg: #2d2d2d;
+    }
+    
+    .project-card {
+        background: var(--card-bg);
+    }
+}
+
+/* Accessibility */
+:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Loading Animation */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeOut 0.5s ease-out 1s forwards;
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
 /* Global Styles */
 * {
     margin: 0;
@@ -10,8 +220,6 @@
     --primary-gradient-end: #764ba2;
     --background-color: #f0f2f5;
     --white: #ffffff;
-    --text-primary: #2d3748;
-    --text-secondary: #4a5568;
     --text-muted: #718096;
     --border-color: #edf2f7;
     --shadow-color: rgba(0, 0, 0, 0.1);
@@ -56,7 +264,7 @@ header p {
 
 /* Section Styles */
 section {
-    background: var(--white);
+    background: var(--background-light);
     border-radius: 15px;
     padding: 30px;
     margin-bottom: 30px;
@@ -95,7 +303,7 @@ h2 {
     margin-bottom: 30px;
     padding: 20px;
     border-left: 4px solid var(--primary-gradient-start);
-    background-color: var(--white);
+    background-color: var(--background-light);
     border-radius: 0 15px 15px 0;
 }
 
@@ -120,8 +328,9 @@ h2 {
     margin-bottom: 12px;
     padding-left: 25px;
     position: relative;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     line-height: 1.6;
+    font-weight: 500;
 }
 
 .experience-item li i {
@@ -146,6 +355,7 @@ h2 {
     border-radius: 25px;
     font-size: 0.9rem;
     transition: transform 0.2s ease;
+    font-weight: 500;
 }
 
 .skill-item:hover, .language-item:hover {
@@ -157,7 +367,7 @@ h2 {
     margin-bottom: 30px;
     padding: 20px;
     border-left: 4px solid var(--primary-gradient-start);
-    background-color: var(--white);
+    background-color: var(--background-light);
     border-radius: 0 15px 15px 0;
 }
 
@@ -182,8 +392,9 @@ h2 {
     margin-bottom: 12px;
     padding-left: 25px;
     position: relative;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     line-height: 1.6;
+    font-weight: 500;
 }
 
 .project-item li i {
@@ -272,16 +483,17 @@ h2 {
 }
 
 .nav-links a {
-    color: white;
+    color: var(--text-primary);
     text-decoration: none;
     padding: 10px;
     display: block;
     border-radius: 5px;
     transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 .nav-links a:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     transform: translateX(5px);
 }
 
@@ -323,6 +535,8 @@ h2 {
     display: flex;
     align-items: center;
     font-size: 1.1rem;
+    color: var(--text-primary);
+    font-weight: 500;
 }
 
 .contact-info i {
@@ -333,7 +547,7 @@ h2 {
 }
 
 .contact-form {
-    background: var(--white);
+    background: var(--background-light);
     padding: 30px;
     border-radius: 10px;
 }
@@ -345,17 +559,19 @@ h2 {
 .form-group label {
     display: block;
     margin-bottom: 5px;
-    color: var(--text-secondary);
+    color: var(--text-primary);
+    font-weight: 500;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--text-secondary);
     border-radius: 5px;
     font-family: "Times New Roman", Times, serif;
-    background-color: var(--white);
+    background-color: var(--background-light);
+    color: var(--text-primary);
 }
 
 .form-group textarea {
@@ -364,13 +580,14 @@ h2 {
 }
 
 .contact-form button {
-    background: linear-gradient(135deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
+    background: var(--primary-color);
     color: white;
     padding: 12px 25px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    font-weight: 600;
 }
 
 .contact-form button:hover {
@@ -385,7 +602,7 @@ h2 {
 
 /* Technical Skills */
 .technical-skills, .soft-skills {
-    background: var(--white);
+    background: var(--background-light);
     padding: 20px;
     border-radius: 10px;
 }
@@ -408,13 +625,14 @@ h2 {
 }
 
 .skill-info span {
-    color: var(--text-secondary);
+    color: var(--text-primary);
     font-size: 0.9rem;
+    font-weight: 500;
 }
 
 .progress-bar {
     height: 8px;
-    background: var(--border-color);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     overflow: hidden;
     margin-bottom: 20px;
@@ -422,7 +640,7 @@ h2 {
 
 .progress {
     height: 100%;
-    background: linear-gradient(135deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
+    background: var(--primary-color);
     border-radius: 4px;
     transition: width 1.5s ease-in-out;
 }
@@ -449,11 +667,12 @@ h2 {
     align-items: center;
     gap: 15px;
     padding: 15px;
-    background: var(--white);
+    background: var(--background-light);
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--text-secondary);
+    font-weight: 500;
 }
 
 .soft-skill-item:hover {
@@ -468,8 +687,9 @@ h2 {
 }
 
 .soft-skill-item span {
-    color: var(--text-secondary);
+    color: var(--text-primary);
     font-size: 1rem;
+    font-weight: 500;
 }
 
 /* Skill Logo Styles */
@@ -488,13 +708,14 @@ h2 {
 
 /* Update Language Items Style */
 .language-item {
-    background: linear-gradient(135deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
+    background: var(--primary-color);
     color: white;
     padding: 10px 20px;
     border-radius: 25px;
     font-size: 1rem;
     transition: transform 0.2s ease;
     margin: 5px;
+    font-weight: 500;
 }
 
 .language-item:hover {
@@ -514,7 +735,7 @@ h2 {
 .publication-item {
     padding: 20px;
     border-left: 4px solid var(--primary-gradient-start);
-    background-color: var(--white);
+    background-color: var(--background-light);
     border-radius: 0 15px 15px 0;
     margin-bottom: 20px;
 }
@@ -527,14 +748,16 @@ h2 {
 }
 
 .publication-item .authors {
-    color: var(--text-secondary);
+    color: var(--text-primary);
     font-weight: bold;
     margin-bottom: 5px;
+    font-weight: 500;
 }
 
 .publication-item .conference {
-    color: var(--text-secondary);
+    color: var(--text-primary);
     margin-bottom: 5px;
+    font-weight: 500;
 }
 
 .publication-item .publication-date {
@@ -548,21 +771,6 @@ h2 {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     padding: 10px 0;
-}
-
-.project-card {
-    background: var(--white);
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    border: 1px solid var(--border-color);
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .project-logo {
@@ -608,7 +816,7 @@ h2 {
 }
 
 .modal-content {
-    background-color: var(--white);
+    background-color: var(--background-light);
     margin: 5% auto;
     padding: 30px;
     border-radius: 15px;
@@ -654,7 +862,7 @@ h2 {
 .project-tech {
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--text-secondary);
 }
 
 .project-tech h4 {
@@ -669,8 +877,8 @@ h2 {
 }
 
 .tech-tags span {
-    background: var(--border-color);
-    color: var(--text-secondary);
+    background: var(--text-secondary);
+    color: var(--background-light);
     padding: 5px 15px;
     border-radius: 15px;
     font-size: 0.9rem;
@@ -686,8 +894,9 @@ h2 {
     margin-bottom: 12px;
     padding-left: 25px;
     position: relative;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     line-height: 1.6;
+    font-weight: 500;
 }
 
 .modal-content li i {
