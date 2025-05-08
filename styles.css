@@ -31,6 +31,16 @@ body {
     overflow-x: hidden;
 }
 
+body {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -622,8 +632,9 @@ h2 {
 .main-content {
     margin-left: 280px;
     padding: 20px;
-    width: calc(100% - 280px);
+    width: auto;
 }
+
 
 /* Contact Form Styles */
 .contact-container {
