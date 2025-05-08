@@ -150,14 +150,69 @@ section.visible {
 }
 
 /* Skill Bars Animation */
+.skill-bar {
+    margin-bottom: 25px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.skill-bar.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.skill-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skill-logo i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.progress-bar {
+    height: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
 .progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 5px;
     width: 0;
-    transition: width 1s ease-out;
-    background: var(--primary-color);
+    transition: width 1.5s ease-in-out;
 }
 
 .skill-bar.visible .progress {
     width: var(--progress-width);
+}
+
+/* Add animation for skill bars */
+@keyframes progressAnimation {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--progress-width);
+    }
+}
+
+/* Update the JavaScript to handle the animations */
+.skill-bar.visible .progress {
+    animation: progressAnimation 1.5s ease-in-out forwards;
 }
 
 /* Contact Form */
